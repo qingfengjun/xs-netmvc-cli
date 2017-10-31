@@ -1,6 +1,6 @@
 # xiaoshuaiWeb
 
-http://www.cnblogs.com/xiaoshuai1992/p/mymvcweb.html\
+http://www.cnblogs.com/xiaoshuai1992/p/mymvcweb.html
 
 Asp.net MVC4 +EF6开发的个人网站源码和介绍（仅供新手学习）
 
