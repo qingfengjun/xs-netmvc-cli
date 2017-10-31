@@ -1,0 +1,86 @@
+﻿body, ul, li, p, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    line-height: 200%;
+}
+
+body {
+    font-size: 14px;
+    font-family: "微软雅黑", Arial, sans-serif;
+    color: #444;
+    min-width: 1200px;
+    padding-top: 50px;
+    background: url(/Content/Images/bg.jpg) no-repeat center top;
+    background-color: #d4e9fa;
+}
+
+#main {
+    margin: auto;
+    width: 1200px;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 15px;
+    line-height: 20px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 30px;
+    display: block;
+    font-weight: normal;
+}
+
+#content {
+    margin: 0px;
+    padding: 20px 20px 20px 20px;
+    background-color: #E3F5FF;
+    margin-bottom: 50px;
+}
+
+/*公用类别*/
+a:link, a:visited, a:active {
+    background: inherit;
+    text-decoration: none;
+    color: #4B6073;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    display: block;
+    list-style: none;
+    margin: 4px 4px 4px 0px;
+    overflow: hidden;
+    padding: 0;
+}
+
+    ul li {
+        height: auto;
+        padding-bottom: 5px;
+        display: block;
+        margin: 0;
+        min-height: 20px;
+        padding: 0;
+    }
+
+/*list前图标*/
+.nav {
+    background-image: url('../Images/nav.gif');
+    background-repeat: no-repeat;
+    background-position: left top;
+    min-height: 30px;
+    min-width: 40px;
+    display: inline-block;
+}

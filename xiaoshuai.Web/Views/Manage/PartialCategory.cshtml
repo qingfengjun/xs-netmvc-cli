@@ -1,0 +1,16 @@
+﻿@model List<xiaoshuai.ViewModel.ComboxViewModel>
+<select name="CategoryId" onchange="categoryId_onchange(this)">
+    @{foreach (var m in Model.Where(x => x.Category == "Category"))
+      {
+        <option value="@m.Value" title="@m.Title" @(m.IsSelect ? "selected='selected'" : "")>@m.Text</option>
+      }
+    }
+</select>
+<select name="SubCategoryId">
+    <option value="">未分类</option>
+    @{foreach (var m in Model.Where(x => x.Category == "SubCategory"))
+      {
+        <option value="@m.Value" title="@m.Title" @(m.IsSelect ? "selected='selected'" : "")>@m.Text</option>
+      }
+    }
+</select>

@@ -1,0 +1,34 @@
+﻿.comments li {
+    overflow: hidden;
+    zoom: 1;
+    padding: 10px 5px;
+    border-bottom: 1px dashed #eee;
+    font-size: 12px;
+}
+
+.comments span {
+    color: red;
+}
+
+.comments .c {
+    width: 560px;
+}
+
+.comments .reply {
+    float: right;
+    font-size: 12px;
+}
+
+.comments h2 {
+    padding: 2px 5px;
+    background: #B2D1E6;
+    margin: 15px auto;
+}
+
+.comment_btn {
+    height: 26px;
+    width: 68px;
+    margin: 0;
+    padding: 0;
+    line-height: 22px;
+}

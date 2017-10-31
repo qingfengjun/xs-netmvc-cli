@@ -1,0 +1,10 @@
+/.vs
+/packages
+/TestResults
+/xiaoshuai.Common/obj
+/xiaoshuai.FrameWork/obj
+/xiaoshuai.Repository/obj
+/xiaoshuai.Services/obj
+/xiaoshuai.Test/obj
+/xiaoshuai.ViewModel/obj
+/xiaoshuai.Web/obj

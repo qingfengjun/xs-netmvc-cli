@@ -1,0 +1,24 @@
+﻿@model List<xiaoshuai.ViewModel.CategoryNavViewModel>
+<div class="menuhead">
+    公告
+</div>
+<div style="text-align: center; margin-top: 5px;">
+    <img src="/Content/Images/tx.gif" width="198px" height="240px" alt="本人的头像">
+</div>
+<p style="margin-bottom: 5px;">
+    主要记录自己的一些文章和觉得不错的东西，将来会成为不错的回忆。
+</p>
+@{foreach (var category in Model)
+  {
+    <div class="menuhead">@category.CategoryName</div>
+      if (category.SubCategory.Count != 0)
+      {
+    <ul>
+        @foreach (var sub in category.SubCategory)
+        {
+            <li><a href='@sub.Url'>@sub.SubCategoryName @(sub.ArticleNum == 1 ? "" : "(" + sub.ArticleNum + ")")</a></li>
+        }
+    </ul>
+      }
+  }
+}

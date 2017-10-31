@@ -1,0 +1,16 @@
+﻿@model List<xiaoshuai.ViewModel.CategoryNavViewModel>
+
+
+@{foreach (var category in Model)
+  {
+    <li>
+        <a href='/Manage/SubCategoryConfig/@category.categoryId'>» @category.CategoryName</a>
+        <ul style="padding-left: 10px;">
+            @foreach (var sub in category.SubCategory)
+            {
+                <li><a href='/Manage/CategoryArticle?id=@(sub.CategoryId)&subid=@(sub.SubCategoryId)'>@sub.SubCategoryName (@sub.ArticleNum)</a></li>
+            }
+        </ul>
+    </li>
+  }
+}

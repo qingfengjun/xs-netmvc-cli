@@ -1,0 +1,80 @@
+﻿@model xiaoshuai.ViewModel.ArticleViewModel
+@{
+    ViewBag.Title = "发布文章";
+    Layout = "~/Views/Common/ManagerLayout.cshtml";
+}
+
+@section Script
+{
+    <script type="text/javascript">
+        //实例化编辑器
+        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+        var UEDITOR_HOME_URL = "/Plugin/ueditor/";　　//从项目的根目录开始
+        var ue = UE.getEditor('editor');
+
+        function beforSubmit() {
+            $("#hideContent").val(ue.getContent());
+
+            var remark = ue.getContentTxt();
+            if (remark.length > 200) {
+                remark = remark.substring(0, 200) + "...";
+            }
+            $("#hideRemark").val(remark);
+            formEdit.submit();
+        }
+
+        function isTop_onchange() {
+            $("#isTop").val($('#isTop').is(':checked') ? '1' : '0');
+        }
+
+        ue.ready(function () {
+            //初始化
+
+            ue.execCommand('insertHtml', '@Html.Raw(Model.Content)');
+        });
+
+            function categoryId_onchange(obj) {
+                $('#select').load('/Manage/PartialCategory/' + $(obj).val());
+            }
+
+            function ShowHelp() {
+                layer.open({
+                    type: 2,
+                    title: '多媒体帮助',
+                    shadeClose: true,
+                    shade: 0.8,
+                    area: ['80%', '80%'],
+                    content: '/Manage/ArticleHelp' //iframe的url
+                });
+            }
+    </script>
+}
+<script src="/Plugin/ueditor/ueditor.config.js"></script>
+<script src="/Plugin/ueditor/ueditor.all.js"></script>
+<script src="/Plugin/ueditor/lang/zh-cn/zh-cn.js"></script>
+<form action="/Manage/ArticlePublish" method="post" id="formEdit">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div>
+        <label for="txtArticle"><b>标题</b></label>
+    </div>
+    <div>
+        <input type="text" name="ArticleTitle" id="txtArticle" maxlength="200" style="width: 100%" value="@Model.Title"/>
+    </div>
+    <div class="inputdiv">
+        <label><b>内容</b><span style="color: blue; cursor: pointer" onclick="ShowHelp()">(帮助)</span></label>
+    </div>
+    <div class="inputdiv">
+        <script id="editor" type="text/plain" style="width: 100%; height: 500px;"></script>
+        <input type="hidden" name="Content" id="hideContent" />
+        <input type="hidden" name="Remark" id="hideRemark" />
+    </div>
+    <div class="inputdiv">
+        <label for="txtArticle"><b>分类</b></label>
+        <div style="display: inline;" id="select">@{Html.RenderAction("PartialCategory", "Manage", new { id = Model.CategoryId, subId = Model.SubCategoryId });}</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;<label for="txtArticle"><b>置顶</b></label><input type="checkbox" name="isTop" value="@Model.IsTop" onchange="isTop_onchange()" id="isTop" />
+    </div>
+    <div class="inputdiv">
+        <input type="button" value="保存" class="Button" onclick="return beforSubmit()">
+    </div>
+</form>
+

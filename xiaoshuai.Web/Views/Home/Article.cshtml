@@ -1,0 +1,43 @@
+﻿@model xiaoshuai.ViewModel.ArticleViewModel
+
+@section Css
+{
+    <link href="/Content/Styles/comment.css" rel="stylesheet" />
+}
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.description = Model.Description;
+    Layout = "~/Views/Common/HomeLayout.cshtml";
+}
+@section Script
+{
+    <script src="/Plugin/jquery-1.9.1.min.js"></script>
+    <script src="/Content/Scripts/comment.js"></script>
+}
+<h1 style="text-align: center;">@Model.Title</h1>
+<br />
+<div>
+    @Html.Raw(Model.Content)
+</div>
+<div style="text-align: right; font-size: 9px; color: gray;">
+    @Model.CreateTime.ToString("yyyy-MM-dd HH:ss") 阅读:(623)
+</div>
+<div>
+    @Html.Partial("SharePartial")
+</div>
+<div class="comments">
+    <h2>评论</h2>
+    <ul id="comments">
+        <li>
+            <div class="c">
+                评论加载中...
+            </div>
+        </li>
+    </ul>
+</div>
+<div>
+    评论内容：
+    <textarea rows="5" cols="3" style="width: 100%" maxlength="500" id="area_comment"></textarea>
+    <input id="btn_comment_submit" type="button" class="comment_btn" value="提交评论"><span style="color: red; display: none;" id="comment_message"></span>
+</div>
+<input type="hidden" id="hidId" value="@Model.ArticleId">

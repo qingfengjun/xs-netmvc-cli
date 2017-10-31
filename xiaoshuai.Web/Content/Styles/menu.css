@@ -1,0 +1,23 @@
+﻿.menu {
+    width: 100%;
+}
+
+    .menu .menuhead {
+        font-size: 13px;
+        text-align: left;
+        font-weight: bold;
+        color: #264756;
+        padding: 5px 10px;
+        background: #B2D1E6;
+        border-bottom: none;
+        border: 1px solid #B2D1E6;
+    }
+
+    .menu p {
+        text-indent: 2em;
+        line-height: 1.5;
+    }
+
+    .menu ul {
+        padding-left: 10px;
+    }

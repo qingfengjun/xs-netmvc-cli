@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xiaoshuai.Services", "xiaoshuai.Services\xiaoshuai.Services.csproj", "{93978143-30A5-4D7C-B12F-F2B43CC7E285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xiaoshuai.Repository", "xiaoshuai.Repository\xiaoshuai.Repository.csproj", "{4A029D94-04FF-431D-93B9-43E864C4F47B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xiaoshuai.Web", "xiaoshuai.Web\xiaoshuai.Web.csproj", "{6D5B0387-C9FD-4C58-AD0C-4B312CA1C985}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xiaoshuai.Test", "xiaoshuai.Test\xiaoshuai.Test.csproj", "{DA25DC4E-3576-4D9B-933E-37361E24C963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xiaoshuai.ViewModel", "xiaoshuai.ViewModel\xiaoshuai.ViewModel.csproj", "{1D1D0A87-321A-415D-BE63-D1AB5C2EC21F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xiaoshuai.Common", "xiaoshuai.Common\xiaoshuai.Common.csproj", "{79130ADC-DD8B-4FE3-B328-6B2CAB8326F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xiaoshuai.FrameWork", "xiaoshuai.FrameWork\xiaoshuai.FrameWork.csproj", "{55899EFC-5347-4167-8BAA-EA693D9CC32E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93978143-30A5-4D7C-B12F-F2B43CC7E285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93978143-30A5-4D7C-B12F-F2B43CC7E285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93978143-30A5-4D7C-B12F-F2B43CC7E285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93978143-30A5-4D7C-B12F-F2B43CC7E285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A029D94-04FF-431D-93B9-43E864C4F47B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A029D94-04FF-431D-93B9-43E864C4F47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A029D94-04FF-431D-93B9-43E864C4F47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A029D94-04FF-431D-93B9-43E864C4F47B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D5B0387-C9FD-4C58-AD0C-4B312CA1C985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D5B0387-C9FD-4C58-AD0C-4B312CA1C985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D5B0387-C9FD-4C58-AD0C-4B312CA1C985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D5B0387-C9FD-4C58-AD0C-4B312CA1C985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA25DC4E-3576-4D9B-933E-37361E24C963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA25DC4E-3576-4D9B-933E-37361E24C963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA25DC4E-3576-4D9B-933E-37361E24C963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA25DC4E-3576-4D9B-933E-37361E24C963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D1D0A87-321A-415D-BE63-D1AB5C2EC21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D1D0A87-321A-415D-BE63-D1AB5C2EC21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D1D0A87-321A-415D-BE63-D1AB5C2EC21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D1D0A87-321A-415D-BE63-D1AB5C2EC21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79130ADC-DD8B-4FE3-B328-6B2CAB8326F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79130ADC-DD8B-4FE3-B328-6B2CAB8326F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79130ADC-DD8B-4FE3-B328-6B2CAB8326F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79130ADC-DD8B-4FE3-B328-6B2CAB8326F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55899EFC-5347-4167-8BAA-EA693D9CC32E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55899EFC-5347-4167-8BAA-EA693D9CC32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55899EFC-5347-4167-8BAA-EA693D9CC32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55899EFC-5347-4167-8BAA-EA693D9CC32E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

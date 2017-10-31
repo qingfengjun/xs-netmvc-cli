@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="@ViewBag.description" />
+    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+    <title>@ViewBag.Title</title>
+    <link href="/Content/Styles/main.css" rel="stylesheet" />
+    <link href="/Content/Styles/menu.css" rel="stylesheet" />
+    <link href="/Content/Styles/list.css" rel="stylesheet" />
+
+    @RenderSection("Css", false)
+</head>
+<body>
+    <div id="main">
+        <div id="content">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="width: 960px; vertical-align: top; overflow: hidden;">@RenderBody()</td>
+                    <td style="font-size: 12px; vertical-align: top; width: 220px; padding-left: 20px">
+                        <div class="menu">
+                            @{Html.RenderAction("Menu", "Common");}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    @RenderSection("Script", false)
+</body>
+</html>

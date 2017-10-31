@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
+    <title>@ViewBag.Title</title>
+    <link href="/Content/Styles/manage.css" rel="stylesheet" />
+    @RenderSection("Css", false)
+    <script src="/Plugin/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <p class="head">
+        清风君后台管理
+    </p>
+    <hr />
+    <table>
+        <tr>
+            <td class="NavLeftCell">
+                <div class="LeftNavHeader">
+                    文章管理
+                </div>
+                <ul>
+                    <li><a href="/Manage/EditArticle">» 发布文章</a></li>
+                </ul>
+                <div class="LeftNavHeader">
+                    分类管理
+                </div>
+                <ul>
+                    <li><a href="/Manage/CategoryConfig">[编辑分类]</a></li>
+                    <li><a href="/Manage/CategoryArticle">[未分类]</a></li>
+                    @{Html.RenderAction("Category", "Common");}
+                </ul>
+            </td>
+            <td class="RightCell">
+                <div class="CollapsibleHeader">
+                    @ViewBag.Title
+                </div>
+                <div>@RenderBody()</div>
+            </td>
+        </tr>
+    </table>
+
+    <script src="/Plugin/layer/layer.js"></script>
+    @RenderSection("Script", false)
+</body>
+</html>

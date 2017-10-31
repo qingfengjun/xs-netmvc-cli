@@ -1,0 +1,23 @@
+﻿@model List<xiaoshuai.ViewModel.ArticleDtoViewModel>
+@{ 
+    if (Model.Count != 0)
+    {
+        foreach (var m in Model)
+        {
+    <div class="item">
+        <h3>
+            <span class="nav">&nbsp;</span><a href="/Home/Article/@(m.ArticleId)">@m.Title  </a></h3>
+        <span class="dateline">发表于 @m.CreateTime.ToString("yyyy-MM-dd HH:ss")</span>
+        <p>
+            @m.Description
+        </p>
+    </div>
+        }
+    }
+    else
+    {
+    <div>
+        无相关数据！
+    </div>
+    }
+}

@@ -1,0 +1,7 @@
+﻿@model List<xiaoshuai.ViewModel.ArticleDtoViewModel>
+@{
+    ViewBag.Title = "xiaoshuai个人网站_分类文章";
+    Layout = "~/Views/Common/HomeLayout.cshtml";
+}
+@{Html.RenderAction("ListCategory", new { id = ViewBag.CategoryId, subid = ViewBag.SubCategoryId });}
+@Html.Partial("ListPartial", Model)

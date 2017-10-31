@@ -1,0 +1,27 @@
+﻿@model List<xiaoshuai.ViewModel.CommentViewModel>
+
+@{
+    if (Model.Count != 0)
+    {
+        int index = 1;
+        foreach (var m in Model)
+        {
+    <li>
+        <div class="reply"><a href="javascript:void(0);" onclick="replay('@(index)楼(@m.Name)')">回复</a></div>
+        <div class="c">
+            <div class="dateline"><span>@index#</span>@m.Name @m.CommentTime.ToString("yyyy-MM-dd HH:ss") </div>
+            @m.Comment
+        </div>
+    </li>
+            index++;
+        }
+    }
+    else
+    {
+    <li>
+        <div class="c">
+            暂无评论
+        </div>
+    </li>
+    }
+}

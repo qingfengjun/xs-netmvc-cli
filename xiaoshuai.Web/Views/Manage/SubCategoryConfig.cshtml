@@ -1,0 +1,103 @@
+﻿@model List<xiaoshuai.ViewModel.SubCategoryViewModel>
+
+@{
+    ViewBag.Title = "子类维护";
+    Layout = "~/Views/Common/ManagerLayout.cshtml";
+}
+@section Script
+{
+    <script type="text/javascript">
+        function deleteSubCategory(id, categoryid) {
+            layer.confirm('该子类下面文章将移到未分类下，是否确认？', {
+                btn: ['确认删除', '取消'] //按钮
+            }, function () {
+                window.location = "/Manage/DeleteSubCategory?id=" + id + "&categoryId=" + categoryid;
+            });
+        }
+        function EditSubCategory(id, name, remark, subcategory) {
+            $("#hidsubCategoryId").val(subcategory);
+            $("#txtSubCategoryName").val(name);
+            $("#hidid").val(id);
+            $("#txtSubCategoryRemark").val(remark);
+
+            layer.open({
+                type: 1,
+                title: '分类维护',
+                closeBtn: false, //不显示关闭按钮
+                shadeClose: true, //开启遮罩关闭
+                area: ['500px', '300px'], //宽高
+                content: $('#editform'),
+            });
+        }
+
+        function validate() {
+            if ($("#txtSubCategoryName").val() == "") {
+                layer.alert('请输入子类名称.');
+                return false;
+            }
+            formSubCategory.submit();
+        }
+    </script>
+}
+<table class="Listing" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+        <th>子类名称
+        </th>
+        <th width="80">
+            <input type="button" value="新增子类" class="Button" onclick="EditSubCategory(0, '', '', '', '')">
+        </th>
+    </tr>
+    @{
+        if (Model.Count != 0)
+        {
+            int index = 0;
+            foreach (var subcategory in Model)
+            {
+        <tr class="@(index % 2 == 0 ? "Alt" : "")">
+            <td>
+                @subcategory.SubCategoryName
+                <br />
+                &nbsp;&nbsp;@subcategory.SubCategoryRemark
+            </td>
+            <td>
+                <a href="javascript:void()" onclick="EditSubCategory(@subcategory.Id,'@subcategory.SubCategoryName','@subcategory.SubCategoryRemark','@subcategory.SubCategoryId')">编辑</a>
+                &nbsp;&nbsp;
+                        <a href="javascript:void()" onclick="deleteSubCategory(@subcategory.Id,'@subcategory.CategoryId')">删除</a>
+            </td>
+        </tr> 
+                index++;
+            }
+        }
+        else
+        {
+        <tr>
+            <td colspan="2">无相关数据！</td>
+        </tr>
+        }
+    }
+</table>
+
+<div id="editform" style="display: none; padding-left: 50px;">
+    <form action="/Manage/EditSubCategory" method="post" id="formSubCategory">
+        <input type="hidden" name="id" id="hidid" value="0" />
+        <input type="hidden" name="SubCategoryId" id="hidsubCategoryId" value="" />
+        <input type="hidden" name="CategoryId" id="hidCategoryId" value="@(ViewBag.CategoryId)" />
+        <div>
+            <label>
+                分类名称<span style="color: red">*</span>
+            </label>
+        </div>
+        <div class="inputdiv">
+            <input name="SubCategoryName" type="text" id="txtSubCategoryName" style="width: 350px" maxlength="50">
+        </div>
+        <div class="inputdiv">
+            <label class="Block">
+                描述 (200 字符以内)
+            </label>
+        </div>
+        <textarea name="SubCategoryRemark" rows="5" cols="20" id="txtSubCategoryRemark" style="width: 350px"></textarea>
+        <div class="inputdiv">
+            <input type="button" value="保存" class="Button" onclick="return validate()">
+        </div>
+    </form>
+</div>

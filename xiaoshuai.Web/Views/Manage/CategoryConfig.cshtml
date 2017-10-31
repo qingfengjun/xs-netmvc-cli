@@ -1,0 +1,107 @@
+﻿@model List<xiaoshuai.ViewModel.CategoryViewModel>
+
+@{
+    ViewBag.Title = "分类维护";
+    Layout = "~/Views/Common/ManagerLayout.cshtml";
+}
+
+@section Script
+{
+    <script type="text/javascript">
+        function deleteCategory(id) {
+            layer.confirm('下面可能有子类，请确认是否删除？', {
+                btn: ['确认删除', '取消'] //按钮
+            }, function () {
+                window.location = "/Manage/DeleteCategory/" + id;
+            });
+        }
+        function EditCategory(id, name, remark, sort, category) {
+            $("#Id").val(id);
+            $("#CategoryId").val(category);
+            $("#CategoryName").val(name);
+            $("#SortId").val(sort);
+            $("#CategoryRemark").val(remark);
+            layer.open({
+                type: 1,
+                title: '分类维护',
+                closeBtn: false, //不显示关闭按钮
+                shadeClose: true, //开启遮罩关闭
+                area: ['500px', '300px'], //宽高
+                content: $('#editform'),
+            });
+        }
+        function validate() {
+            if ($("#CategoryName").val() == "") {
+                layer.alert('请输入分类名称.');
+                return false;
+            }
+            if ($("#CategoryRemark").val() == "") {
+                layer.alert('请输入分类备注.');
+                return false;
+            }
+            formCategory.submit();
+        }
+    </script>
+}
+<table class="Listing" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+        <th>分类名称
+        </th>
+        <th width="40">排序</th>
+        <th width="80">
+            <input type="button" value="新增分类" class="Button" onclick="EditCategory(0, '', '', 0)">
+        </th>
+    </tr>
+    @{ 
+        if (Model.Count != 0)
+        {
+            int index = 0;
+            foreach (var category in Model)
+            {
+        <tr class="@(index % 2 == 0 ? "Alt" : "")">
+            <td>
+                <p>
+                    @category.CategoryName
+                    <br />
+                    &nbsp;&nbsp;@category.CategoryRemark
+            </td>
+            <td>@category.SortId</td>
+            <td>
+                <a href="javascript:void()" onclick="EditCategory(@category.Id,'@category.CategoryName','@category.CategoryRemark',@category.SortId,'@category.CategoryId')">编辑</a>
+                &nbsp;&nbsp;
+                <a href="javascript:void()" onclick="deleteCategory('@category.CategoryId')">删除</a>
+            </td>
+        </tr> 
+                index++;
+            }
+        }
+        else
+        {
+        <tr>
+            <td colspan="3">无相关数据！</td>
+        </tr>
+        }
+    }
+</table>
+<div id="editform" style="display: none; padding-left: 50px;">
+    @using (Html.BeginForm("EditCategory", "Manage", FormMethod.Post, new { id = "formCategory" }))
+    {
+        @Html.Hidden("id", "0", null);
+        @Html.Hidden("categoryId");
+        <p>
+            @Html.Label("CategoryName", "分类名称<span style='color: red'>*</span>")
+            @Html.TextBox("CategoryName", new { style = "width: 350px", maxlength = "10" })
+        </p>
+        <p>
+            @Html.Label("CategoryName", "排序 (按照数据从小到大排序)<span style='color: red'>*</span>")
+            @Html.TextBox("SortId", new { style = "width: 350px", maxlength = "2" })
+        </p>
+        <p>
+            @Html.Label("CategoryRemark", "描述 (200 字符以内)", new { @class = "Block" })
+            @Html.TextArea("CategoryRemark", "", 5, 20, new { style = "width: 350px" })
+        </p>
+        <div style="margin-top: 8px">
+            <input type="button" value="保存" class="Button" onclick="return validate()">
+        </div>
+    }
+</div>

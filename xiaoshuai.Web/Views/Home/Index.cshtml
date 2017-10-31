@@ -1,0 +1,9 @@
+﻿@model List<xiaoshuai.ViewModel.ArticleDtoViewModel>
+@{
+    ViewBag.Title = "xiaoshuai的个人网站，记录自己的一些东西";
+    Layout = "~/Views/Common/HomeLayout.cshtml";
+}
+<h1 class="entrylistTitle">个人主页</h1>
+<div class="entrylistDescription">我本一缕清风，逍遥天地间...</div>
+@Html.Partial("ListPartial", Model)
+@Html.Pager(1,1,2);
